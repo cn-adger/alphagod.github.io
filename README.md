@@ -1,92 +1,61 @@
-# Jekyll For Everyone
 
-Jekyll For Everyone is a package that is designed for everyone. The package contains three major components: homepage, CV, and [Gitbook](http://www.gitbook.com). The index page is a strip down version of [Jekyll Uno](https://github.com/joshgerdes/jekyll-uno) while the CV a modification of [Online CV](https://github.com/sharu725/online-cv). However, [Legacy Gitbook (v3.2.3)](https://github.com/GitbookIO/gitbook) is used instead of modern Gitbook (v4+). The main reason of using it is due to the fact that users can own their source code and edit them locally instead of doing it on the cloud. 
 
-This package is very user friendly for non-programmer as I reorganized all the files and have all the variables written in several data files. This make it them to edit without needing to go into the actual code. 
+## 个人信息
+  - 赖俊杰/男/23岁/1997
+  - 专科/计算机应用技术 
+  - 经验年限: 4年
+  - 电话: 13123599450
+  - 邮箱: cn.adger.lai@gmail.com
+  - 期望职位: Web前端开发工程师
+  - 期望薪资: 税后13K ~ 16K
 
-Big thanks to the theme creator as it this project would not be possible without their hard work! You are always welcome to contribute to this repository to make it better!
+## 技能清单
+  - 熟练: html/javascript/ajax/css3/es5/es6
+  - 常用前端框架: vue/bootstrap/jquery
+  - 常用前端UI库: vuetifyjs/layui/elementui/bootstrap/
+  - 后端: php/thinkphp/
+  - 数据库相关: MySQL/MongoDB/
+  - 版本管理和自动化部署工具: svn/git/webpack/gitee
+  - 尚未完全掌握但能运用: thinkphp/
+  - 小程序开发: wxml/wxss/weui/微信支付/第三方UI/
+  - 正在学习: uniapp/angular/微信公众号/react/Go/
 
-**Story Behind The Project**
+## 个人优势
 
-The main purpose of this project is to allow everyone especially for non-programmer to own a website and platform to share their expertise without needing to worry about the cost of owning and maintaining their website. I heard from a lot of readers mentioning that they are in love with the simplicity of my website especially and would love to one one. They only reason that stops them from doing it is they do not have any programming experience and not a tech savvy. With that, this motivates me to write a complete tutorial on how to get started with [Jekyll](http://melvinchng.github.io/jekyll). 
+- 3年前端开发经验，熟悉各种业务逻辑，具备良好的逻辑思维;
+- 能够熟练运用新语法，能够独立完成前端应用开发;
+- 实际开发中有良好的代码规范习惯，模块化/封装复用等;
+- 在后端方面能够使用php/thinkphp独立开发接口;
+- 能够编写出规范的技术文档/项目文档/接口文档等;
 
-Also, as a fresh graduate, I see the importance of owning a personal website when it comes to job hunting. If you love this project and would like to support it, spread the message and keep the footer as in. 
+## 工作经历
+### 深圳市鼎新软件科技有限公司 （ 2020.09~2021.08 ） 前端工程师 / 校园官网、管理系统
+ > 项目描述：校园管理系统（pc/mobile）</br>
+   开发环境：Vue/Node/Element/Vuetify</br>
+   项目职责：使用Element/Vant等多个前端框架实现pc和移动端响应式布局，部分项目响应式使用Vuetify框架实现兼容pc和移动端代码一体。
+   
+   
+### 深圳市汇合点科技有限公司 （ 2019.07~2020.05 ） 前端工程师 / 前后端管理系统、游戏官网
+ > 项目描述：游戏数据管理系统</br>
+   开发环境：PHP/Thinkphp/MySQL/MongoDB</br>
+   项目职责：使用JQ+Bootstrap+Layui 实现前端响应式布局, Vue+Elementui美化界面以及提高交互体验。使用PHP+Thinkphp开发后台接口, 与unity同事对接完成游戏数据联调, 优化游戏数据传输格式化。
 
-**Example Site**
-- My Personal Website
-  - [Melvin's landing page](https://melvinchng.github.io)
-  - [Melvin's CV](https://melvinchng.github.io/cv)
-  - [Melvin's Ruby on Rails Tuturial](https://melvinchng.github.io/rails)
-- Jekyll For Everyone Sample Website
-  - [Landing page](https://jekyll-for-everyone.github.io)
-  - [CV](https://jekyll-for-everyone.github.io/cv)
-  - [Gitbook](https://melvinchng.github.io/gitbook)
 
-_Note: The content in `jekyll-for-everyone` is for illustration purpose only. It may not contain accurate information._
+### 深圳市寅博科技有限公司 （ 2018.12~2019.05 ） 前端工程师 / 小程序、门户官网
+ > 项目描述：小程序(服务、社交、交易)、短信平台维护、程序官网</br>
+   开发环境：WXS/PHP/Photoshop/蓝湖</br>
+   项目职责：独立完成公司所有小程序开发&维护, 使用weui+colorui实现小程序开发, 通过封装原生API实现模块化数据处理&后端交互, 其中技术涉及腾讯地图API&第三方wxParese富文本处理； 后端使用PHP+ThinkPHP开发接口（马上友约）。 
 
-## Features
-### Index Page
-- Name
-- Title Line
-- Secondary Information Line
-- Links to social pages
-- Links to other pages
-### CV
-- Summary or Background
-- Education
-- Experiences
-- Individual Projects
-- Group Projects
-- Skill & Proficiency
-- Related Courses
-- Honors & Awards
-- Languages
-- Social Link
-- Volunteer Experiences
-### Gitbook
-- Sample Gitbook
 
-## Installation
-### If you do not know what you are doing
-1. Refer to my [guide](http://melvinchng.github.io/jekyll). It contains single instructions that you need to follow to get started.
-### If you know what you are doing or somewhat know what to do
-**Jekyll**
-1. For first time user, you have to install Ruby and Rails. If you do not have Ruby installed, you may follow [this tutorial](http://melvinchng.github.io/rails/RubyOnRailsInstallation.html) that I wrote for Windows, Linux, and MacOS (installation videos are included).
-2. Install Jekyll by using the command `gem install jekyll`.
-3. Then, install Jekyll Sitemap and Jekyll SEO gems by using the command `gem install jekyll-sitemap` and `gem install wdm`.
-4. Start your localhost server by using the command `jekyll serve`. Make sure that you are at the root directory of your folder before using this command.
-5. Your site should be accessible at `localhost:4000`.
-6. For additional information about Jekyll, refer to the [official website](http://jekyllrb.com/). 
+### 北海石基信息技术有限公司 （ 2017.09~2018.09 ） 软件开发工程师 / 酒店管理
+ > 项目描述：酒店前后端管理系统（pc/mobile）</br>
+   软件环境：Node+Tomcat+Java+MongoDB</br>
+   项目描述：负责设计界面，使用Bootstrap+Layui实现响应式布局, 使用Angularjs+JQ完成前端数据的双向交互, 采用Node.js作为中间件处理JSON数据JSP渲染部分数据, 与后端人员完成数据联调&优化浏览器兼容性。
 
-**Gitbook**
-1. For first time user, you have to Gitbook modules by using the command `npm install gitbook-cli -g`.
-2. Navigate to the root directory of the gitbook, `gitbook_source_code` and start the gitbook server using the command `gitbook serve`. 
-3. If there are missing some packages for gitbook, use the command `gitbook install`.
-4. Your site should be accessible at `localhost:4000`.
-5. For additional information about Gitbook, refer to the [official website](https://github.com/GitbookIO/gitbook). 
+## 教育经历
 
-## How To Use
-### Index Page
-- The stylesheet, scripts, javascript for the index pages are stored at `/index_style/`.
-- The background picture for index page, named as `background-cover.jpg` can be found and replaced at `index_style/images`.
-- The profile picture for index page and cv page, named as `profile.png` can be found and replaced at `assets/images`.
-- All the data that shown in the index page are stored in `/_data/index_page.yml`. Replace all the content in the files.
+- 2015.9 - 2018.6 北海职业学院 / 专科 / 计算机应用技术
 
-### CV
-- The stylesheet, scripts, javascript for the cv pages are stored at `/assets/`.
-- All the data that shown in the cv are stored in `/_data/cv_NAME.yml`. Replace all the content in the files.
-- If you would like to remove a specific section in the cv, change the variable from `true` to `false` for the variable in `/_data/cv_enable_section.yml`.
+## 致谢
 
-### Gitbook
-- If you are not going to use the Gitbook feature, remove the `gitbook` folder.
-- The source code is stored at `/gitbook_source_code`
-- The content of generated book is coped from `/gitbook_source_code/_book` to `/gitbook`.
-
-### Other
-- If you would like to replace the website icon, you can use [this](https://favicon.io/) website to create one and replace the downloaded icon at `favicon.io`.
-- Update the variable in `/_config.yml`. Remember to replace the `url` variable with your actual URL.
-- If you would like to use Google Analytics, add your tracking number to `/_config.yml`.
-
-## Enjoy!
-
-As a reminder, if you love this project and would like to support it, spread the message and keep the footer as in. 
+- 感谢您花时间阅读我的简历，期待能有机会和您共事。
