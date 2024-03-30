@@ -1,599 +1,676 @@
-<!doctype html>
-<html>
-<head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-
-<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
-.mac-os-11 { --title-bar-height:28px; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, h5 { white-space: pre-wrap; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
-.typora-export .task-list-item input { pointer-events: none; }
-@media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>markdown版本</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
 }
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
-button, input, select, textarea { color: inherit; font: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px; }
-thead, tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror-linenumber { user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-svg { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li blockquote { margin: 1rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
-@media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  .typora-export #write { break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
-  .is-mac table { break-inside: avoid; }
-  #write > p:nth-child(1) { margin-top: 0px; }
-  .typora-export-show-outline .typora-export-sidebar { display: none; }
-  figure { overflow-x: visible; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-.MathJax_ref { fill: currentcolor; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.reversefootnote { font-family: ui-monospace, sans-serif; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
-mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
-.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-.md-expand mark .md-meta { opacity: 0.3 !important; }
-mark .md-meta { color: rgb(0, 0, 0); }
-@media print {
-  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
-}
-.md-diagram-panel .messageText { stroke: none !important; }
-.md-diagram-panel .start-state { fill: var(--node-fill); }
-.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
-.md-fences.md-fences-math { font-size: 1em; }
-.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
-.md-fences-advanced:not(.md-focus) { background: inherit; }
-.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
-.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
-.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
-.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
-@media screen and (max-width: 1024px) {
-  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
-}
-@media screen and (max-width: 800px) {
-  .typora-export-sidebar { display: none; }
-}
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
-.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
-.outline-content strong { font-weight: 400; }
-.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
-.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
-.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
-.outline-expander:hover::before { content: ""; }
-.outline-h1 > .outline-item { padding-left: 0px; }
-.outline-h2 > .outline-item { padding-left: 1em; }
-.outline-h3 > .outline-item { padding-left: 2em; }
-.outline-h4 > .outline-item { padding-left: 3em; }
-.outline-h5 > .outline-item { padding-left: 4em; }
-.outline-h6 > .outline-item { padding-left: 5em; }
-.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
-.outline-label:hover { text-decoration: underline; }
-.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
-.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
-.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
-.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
-.outline-children { display: none; }
-.info-panel-tab-wrapper { display: none; }
-.outline-item-open > .outline-children { display: block; }
-.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
-.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
-.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
-.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
-.typora-export-collapse-outline .outline-children { display: none; }
-.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
-.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
-.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
-.md-inline-math-container mjx-container { zoom: 0.95; }
-mjx-container { break-inside: avoid; }
-
-
-:root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
 }
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
-
-/* open-sans-regular - latin-ext_latin */
-  /* open-sans-italic - latin-ext_latin */
-    /* open-sans-700 - latin-ext_latin */
-    /* open-sans-700italic - latin-ext_latin */
-  html {
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
 }
 
 body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
-    color: rgb(51, 51, 51);
-    line-height: 1.6;
+	line-height: 1.5;
+	white-space: pre-wrap;
 }
 
-#write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
 }
 
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
 }
 
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
-}
-
-#write > ul:first-child,
-#write > ol:first-child{
-    margin-top: 30px;
-}
-
-a {
-    color: #4183C4;
-}
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
 }
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor,
-h5:hover a.anchor,
-h6:hover a.anchor {
-    text-decoration: none;
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
 }
-h1 tt,
-h1 code {
-    font-size: inherit;
-}
-h2 tt,
-h2 code {
-    font-size: inherit;
-}
-h3 tt,
-h3 code {
-    font-size: inherit;
-}
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
-}
+
 h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
 }
+
 h2 {
-    font-size: 1.75em;
-    line-height: 1.225;
-    border-bottom: 1px solid #eee;
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
 }
-
-/*@media print {
-    .typora-export h1,
-    .typora-export h2 {
-        border-bottom: none;
-        padding-bottom: initial;
-    }
-
-    .typora-export h1::after,
-    .typora-export h2::after {
-        content: "";
-        display: block;
-        height: 100px;
-        margin-top: -96px;
-        border-top: 1px solid #eee;
-    }
-}*/
 
 h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
 }
-h4 {
-    font-size: 1.25em;
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
 }
-h5 {
-    font-size: 1em;
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
 }
-h6 {
-   font-size: 1em;
-    color: #777;
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
 }
-p,
-blockquote,
-ul,
-ol,
-dl,
-table{
-    margin: 0.8em 0;
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
 }
-li>ol,
-li>ul {
-    margin: 0 0;
+
+mark {
+	background-color: transparent;
 }
+
+.indented {
+	padding-left: 1.5em;
+}
+
 hr {
-    height: 2px;
-    padding: 0;
-    margin: 16px 0;
-    background-color: #e7e7e7;
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
 }
 
-li p.first {
-    display: inline-block;
+img {
+	max-width: 100%;
 }
-ul,
-ol {
-    padding-left: 30px;
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
 }
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
+
+@page {
+	margin: 1in;
 }
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
+
+.collection-content {
+	font-size: 0.875rem;
 }
-blockquote {
-    border-left: 4px solid #dfe2e5;
-    padding: 0 15px;
-    color: #777777;
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
 }
-blockquote blockquote {
-    padding-right: 0;
+
+.column {
+	padding: 0 1em;
 }
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
 table {
-    padding: 0;
-    word-break: initial;
-}
-table tr {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 0;
-}
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
-}
-table th {
-    font-weight: bold;
-    border: 1px solid #dfe2e5;
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
-}
-table td {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 6px 13px;
-}
-table th:first-child,
-table td:first-child {
-    margin-top: 0;
-}
-table th:last-child,
-table td:last-child {
-    margin-bottom: 0;
+	border-left: none;
+	border-right: none;
 }
 
-.CodeMirror-lines {
-    padding-left: 4px;
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
 }
 
-.code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
-    border-top: 1px solid #eef2f2;
+th {
+	color: rgba(55, 53, 47, 0.6);
 }
 
-.md-fences,
-code,
-tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    padding: 0;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.9em;
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
 }
 
 code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
+	color: #eb5757;
 }
 
-.md-fences {
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-top: 8px;
-    padding-bottom: 6px;
+.code {
+	padding: 1.5em 1em;
 }
 
-
-.md-task-list-item > input {
-  margin-left: -1.3em;
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
 }
 
-@media print {
-    html {
-        font-size: 13px;
-    }
-    pre {
-        page-break-inside: avoid;
-        word-wrap: break-word;
-    }
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
 }
 
-.md-fences {
-	background-color: #f8f8f8;
-}
-#write pre.md-meta-block {
-	padding: 1rem;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f7f7f7;
-    border: 0;
-    border-radius: 3px;
-    color: #777777;
-    margin-top: 0 !important;
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
 }
 
-.mathjax-block>.code-tooltip {
-	bottom: .375rem;
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
 }
 
-.md-mathjax-midline {
-    background: #fafafa;
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
 }
 
-#write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
-}
-#write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-.md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
-    border-radius: 3px;
-    padding: 2px 0px 0px 4px;
-    font-size: 0.9em;
-    color: inherit;
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
 }
 
-.md-tag {
-    color: #a7a7a7;
-    opacity: 1;
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
 }
 
-.sidebar-tabs {
-    border-bottom: none;
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
 }
 
-#typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
 }
 
-#typora-quick-open-item {
-    background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
 }
 
-/** focus mode */
-.on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
-
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
-    visibility: visible;
-}
-
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
-}
-
-.md-lang {
-    color: #b4654d;
-}
-
-/*.html-for-mac {
-    --item-hover-bg-color: #E6F0FE;
-}*/
-
-#md-notification .btn {
-    border: 0;
-}
-
-.dropdown-menu .divider {
-    border-color: #e5e5e5;
-    opacity: 0.4;
-}
-
-.ty-preferences .window-content {
-    background-color: #fafafa;
-}
-
-.ty-preferences .nav-group-item.active {
-    color: white;
-    background: #999;
-}
-
-.menu-item-container a.menu-style-btn {
-    background-color: #f5f8fa;
-    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
-}
-
-
-
-</style><title>cv</title>
-</head>
-<body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h2 id='个人信息'><span>个人信息</span></h2><ul><li><p><span>赖俊杰丨男丨25岁丨1997</span></p></li><li><p><span>专科丨计算机应用技术 </span></p></li><li><p><span>工作经验: 4年</span></p></li><li><p><span>微信: AlphaGod</span></p></li><li><p><span>电话: 13123599450</span></p></li><li><p><span>邮箱: </span><a href='mailto:cn.adger.lai@gmail.com' target='_blank' class='url'>cn.adger.lai@gmail.com</a></p></li><li><p><span>现居：深圳市宝安区</span></p></li><li><p><span>在线简历pdf版(pc查看效果更佳): </span><a href='https://cn-adger.github.io' target='_blank' class='url'>https://cn-adger.github.io</a></p></li><li><p><span>在线简历pdf版(pc查看效果更佳): </span><a href='https://alphagod.gitee.io' target='_blank' class='url'>https://alphagod.gitee.io</a></p></li><li><p><span>期望职位: Web前端开发工程师</span></p></li><li><p><span>期望薪资: 税后14K ~ 18K</span></p></li></ul><h2 id='技能清单'><span>技能清单</span></h2><ul><li><p><span>熟练:HTML5、CS3、JavaScript、ES6</span></p></li><li><p><span>掌握:Vue、Vue CLI、Vue Router、Vuex、Axios</span></p></li><li><p><span>熟练:Element、Vuetify.Vant、Layui、Tailwind css</span></p></li><li><p><span>了解&amp;正在学习: Uni-app、ionic、React、Angular、Electron</span></p></li><li><p><span>了解&amp;正在学习:PHP、ThinkPHP、Golang  </span></p></li><li><p><span>了解&amp;正在学习: MySQL、MongoDB</span></p></li></ul><h2 id='个人优势'><span>个人优势</span></h2><blockquote><p><span>4年前端开发经验，掌握vue全家桶，熟悉前端主流框架以及ui库，有移动端开发经验，有php开发基础可开发api接口</span></p></blockquote><h2 id='自我介绍'><span>自我介绍</span></h2><blockquote><p><span>我拥有4年以上的前端开发经验，致力于向全栈发展并积累了一定的后端基础知识以及其它方面开发技能。善于稳定输出高质量的代码，并熟练运用前端技术框架来实现各种功能。在编写代码时，我注重代码的模块化和封装，以便于重用和维护。我还具备良好的设计图解析能力，能够准确高效地将设计图还原为代码。此外，我也有一定的PHP开发基础，可使用PHP/ThinkPHP技术开发数据接口。</span></p></blockquote><h2 id='工作经历'><span>工作经历</span></h2><h3 id='深圳市云蜂智能有限公司--202203--202212-）-web前端工程师'><span>深圳市云蜂智能有限公司 （ 2022/03 ~ 2022/12 ） web前端工程师</span></h3><blockquote><p><span>~/ 云蜂智能管理系统（该系统管理着公司出售的所有智能手表)</span><br/><span>~/ 使用Vue作为主要开发框架对该系统进行重构，同时利用Element组件库完成了Ul重构，并拓展了后续的功能。</span><br/><span>~/ 为了实现权限管理功能，使用VueRouter完成了静态和动态路由功能，并实现了访问限制和参数传递等功能。</span><br/><span>~/ 对系统内大量可重用代码进行了组件封装，并按需加载异步处理，同时删除冗余代码减少了HTTP请求。</span><br/><span>~/ 通过封装Request，实现了对后台返回的Code进行统一管理，避免了在请求页面中编写重复的Code处理代码。</span><br/><span>~/ 为了提升页面渲染速度和访问速度，将项目图片等资源进行了压缩，并使用CDN进行加速。</span><br/><span>~/ 使用Vuex实现了全局状态管理、用户信息存储和动态菜单管理等功能，使得该系统对用户更加容易管理和易用。</span></p></blockquote><h3 id='深圳市鼎新软件科技有限公司--202009--202108--）-web前端工程师'><span>深圳市鼎新软件科技有限公司 （ 2020/09 ~ 2021/08  ） web前端工程师</span></h3><blockquote><p><span>~/ 南方科技大学本科生招生系统（该项目旨在为学校师生提供便捷的服务)</span><br/><span>~/ 使用Vue框架进行数据交互，为了简化数据交互的过程，采用了Axios库封装网络请求模块，并根据项目的实际需求封装了一些通用的HTTP请求方法，例如GET、POST等，以便在不同场景下进行重复调用。</span><br/><span>~/ 在实现组件数据交互的过程中，组件之间进行数据传递采用了Props和Emit等技术来实现组件之间的数据传递和通信，从而实现学生的报名信息在不同页面组件之间的数据交互。</span><br/><span>~/ 为了方便管理和维护教师和学生的身份信息，采用了Vuex来实现身份信息的存储和管理，使用Vue-router实现拦截和权限控制，并且在Token上加入了时间授权校验，有效避免了恶意攻击和非法访问，提高系统的安全性和稳定性。</span><br/><span>~/ 为了实现PC端和移动端页面的兼容性，使用了国外的Vuetify框架，实现了一套代码双端兼容，提高了开发效率和维护效率，并且后续使用Vant框架独立开发出了一套移动端页面。</span></p></blockquote><h3 id='深圳市汇合点科技有限公司--201907--202005--）-web前端工程师'><span>深圳市汇合点科技有限公司 （ 2019/07 ~ 2020/05  ） web前端工程师</span></h3><blockquote><p><span>~/ 游戏管理系统（该项目是一款手机APP游戏管理后台，管理APP内6款子游戏数据)</span><br/><span>~/ 参与早期版本的开发，使用jQuery和Layui实现了界面布局，响应式设计，和基本的数据展示功能。</span><br/><span>~/ 为了提高管理人员的工作效率，升级重构了系统，采用了Vue和Element框架，并引入了echarts实现了更多交互功能，例如图表数据展示和交互、表格可视化等。这些优化措施大大提高了对6款游戏数据管理的可视化操作性有效避免了管理员在查看繁琐的数据信息时遇到不便于修改的情况。</span><br/><span>~/ 为了实现前后端数据的无缝交互，我在后台接口的设计中使用了PHP和ThinkPHP协助开发用户登录、权限控制以及游戏数据管理等接口。此外，也协助完成了部分数据库设计和SQL编写等工作，利用MySQL和MongoDB数据库存储和管理系统数据，以提高开发效率。</span></p></blockquote><h3 id='深圳市寅博科技有限公司--201812--201905--）-web前端工程师'><span>深圳市寅博科技有限公司 （ 2018/12 ~ 2019/05  ） web前端工程师</span></h3><blockquote><p><span>~/ 马上友约小程序（该项目是一款同城交友小程序)</span><br/><span>~/ 独立完成了小程序开发和维护工作，使用了WXS作为小程序的前端开发语言，同时使用weui和coloruiUI框架，提高了小程序的开发效率和用户体验。</span><br/><span>~/ 封装了一些原生API，实现模块化数据处理和后端交互，包括数据请求、数据处理、文件上传、图片预览、地图展示等，大大提高了开发效率和代码可复用性。</span><br/><span>~/ 为了实现小程序的地图展示和富文本处理，涉及到了腾讯地图API和第三方wxParse富文本处理等技术。实现了小程序地图展示、地图搜索等功能。通过wxParse富文本处理，实现了小程序富文本内容展示和处理，提高了小程序的用户体验和信息展示效果。</span><br/><span>~/ 为了实现小程序后端开发，使用了PHP框架来开发接口。实现数据存储、数据查询、数据删除等。</span></p></blockquote><h3 id='北海石基信息技术有限公司--201709--201809--）-web前端工程师'><span>北海石基信息技术有限公司 （ 2017/09 ~ 2018/09  ） web前端工程师</span></h3><blockquote><p><span>~/ 酒店管理系统(该项目是一款酒店管理系统)</span><br/><span>~/ 参与设计酒店官网界面以及管理系统界面，采用Bootstrap和Layui等前端框架，实现响应式布局，确保界面在不同设备上都有良好的显示效果。同时，通过CSS3媒体查询技术，实现针对不同屏幕尺寸的样式设置。</span><br/><span>~/ 使用jQuery实现前端交互和事件处理，使用AngularJS实现前端数据的双向绑定、模块化管理和路由控制。</span><br/><span>~/ 通过Ajax实现前后端数据交互，与后端人员完成数据联调和接口优化。</span></p></blockquote><h2 id='教育经历'><span>教育经历</span></h2><ul><li><p><span>2015.9 - 2018.6 北海职业学院 / 专科 / 计算机应用技术</span></p></li></ul><h2 id='致谢'><span>致谢</span></h2><ul><li><p><span>感谢您花时间阅读我的简历，期待能有机会和您共事。</span></p></li></ul></div></div>
-</body>
-</html>
+	
+</style></head><body><article id="fe3245f7-9eb1-4317-940b-ba28b762b7d0" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📘</span></div><h1 class="page-title"><strong><strong>markdown</strong></strong>版本</h1><p class="page-description"></p></header><div class="page-body"><h1 id="bc4d4ab2-0b54-456a-b6c4-108720c14f14" class="">🙎🏻‍♂️个人信息</h1><ul id="7cf0a238-03ab-4bef-9099-0f2889525a5d" class="bulleted-list"><li style="list-style-type:disc">🌟赖俊杰〰️男〰️26岁〰️1997</li></ul><ul id="d496b816-a375-4af6-a61f-9c0d1df44c89" class="bulleted-list"><li style="list-style-type:disc">💻计算机应用技术〰️专科</li></ul><ul id="df9d8fd3-7149-4e42-ba18-e9eb37f87226" class="bulleted-list"><li style="list-style-type:disc">📅工作经验：6年</li></ul><ul id="8891f469-10c2-4f3a-a05a-cf14340b6f4e" class="bulleted-list"><li style="list-style-type:disc">📡微信：AlphaGod</li></ul><ul id="1f0ab94b-ab10-411c-8436-9f16e710be29" class="bulleted-list"><li style="list-style-type:disc">📞电话：13123599450</li></ul><ul id="e388ab76-7128-4265-a320-8b62b9a56d50" class="bulleted-list"><li style="list-style-type:disc">📧邮箱：<a href="mailto:cn.adger.lai@gmail.com">cn.adger.lai@gmail.com</a></li></ul><ul id="7a797bcf-c30b-4402-8c04-2ee46d1182d4" class="bulleted-list"><li style="list-style-type:disc">🏙️现居：深圳市 宝安区</li></ul><ul id="5c650103-cc0d-404e-bbed-9bdd9ecb3c83" class="bulleted-list"><li style="list-style-type:disc">🚀期望职位：Web前端开发工程师</li></ul><ul id="28078610-2b58-4d13-8445-b3b6df35057a" class="bulleted-list"><li style="list-style-type:disc">💰期望薪资：17K ~ 22K</li></ul><p id="b6a3c635-f7cb-4cff-87da-604f0b660deb" class="">👇🏻 简历预览👇🏻</p><table id="4d4f5f41-d03b-4d58-8f3d-bcc625333da8" class="simple-table"><tbody><tr id="c48bb0de-7a7a-4725-a163-87ddc85c4f99"><td id="NDSr" class="" style="width:205.4375px"><strong>PDF（请使用</strong><code><strong>电脑</strong></code><strong>查看）</strong></td><td id="cFy&lt;" class="" style="width:271px"><strong>纯文字版（就是这个页面啦🤪）</strong></td></tr><tr id="2b3b2c9b-be0a-40d1-93e3-0076b8244259"><td id="NDSr" class="" style="width:205.4375px"><a href="https://cn-adger.github.io/">点击查看PDF</a></td><td id="cFy&lt;" class="" style="width:271px"><a href="https://alphagod.gitee.io//cv">点击查看纯文字版</a></td></tr><tr id="951391ad-a8ab-4eeb-a905-d5af1f7225ce"><td id="NDSr" class="" style="width:205.4375px"></td><td id="cFy&lt;" class="" style="width:271px"></td></tr></tbody></table><h1 id="c1d5eb0c-f655-4bf0-bfd2-726b2a8b3d71" class="">📝技能清单</h1><ul id="50bdf586-a6ef-441c-8be7-17dfb0d7917b" class="bulleted-list"><li style="list-style-type:disc">💼掌握<code>Vue2/3</code>全家桶使用（<code>Vue-CLl</code>、<code>Vuex</code>、<code>VueRouter</code>、<code>Axios</code>），了解其响应式原理、组件化开发等核心概念；</li></ul><ul id="48e20c07-d33c-46d3-bf69-0fcb29a0704f" class="bulleted-list"><li style="list-style-type:disc">🎨熟练运用多种<code>Ui</code>框架/库<code>RuoYi-Vue</code>、<code>Element Ui</code>、<code>Vuetify</code>、<code>Vant</code>、<code>iView</code>、<code>Bootstrap</code>以及<code>Ui</code>库<code>Tailwind</code>、<code>Color Ui</code>；</li></ul><ul id="468772f7-88d0-4243-b746-f4169909b4cf" class="bulleted-list"><li style="list-style-type:disc">📱 具备<code>小程序</code>开发经验，并能运用PHP及其框架进行<code>API</code>开发，同时也涉猎了<code>MSQL</code>和<code>MongoDB</code>数据库技术；</li></ul><ul id="1411784f-a7ed-43e4-86da-3721e21cf23e" class="bulleted-list"><li style="list-style-type:disc">🛠️熟悉前端构建工具<code>Vite</code>和<code>Webpack</code>的基本使用，同时熟练掌握版本控制工具<code>Git</code>和<code>TortoiseSVN</code>的应用；</li></ul><ul id="3fe49ce4-bd07-42f8-b57f-31536d96cb9a" class="bulleted-list"><li style="list-style-type:disc">📚正在自学：<code>Golang</code>(已有实践项目)、<code>Pinia</code>、<code>TypeScript</code>、<code>React</code></li></ul><hr id="c4e0ff1a-32d1-451a-88f8-fe0b84c64aa8"/><h1 id="4c6d3cf4-33bd-48a1-939c-c56e76df28bc" class="">✍️个人优势</h1><ul id="3047f249-9f81-47fd-84a8-e787bc32736a" class="bulleted-list"><li style="list-style-type:disc">🤦‍♂️优势谈不上，毕竟我不是那种资深砖家级别的。但会的是真会，不会的我是真不会 ~</li></ul><ul id="bed9ed98-be7e-4b24-adc4-d1407db8fdb0" class="bulleted-list"><li style="list-style-type:disc">官方介绍请看👇🏻<ul id="49bd7c19-fd4c-4f62-ad44-1a0bb9bc1e20" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal"><code>6年</code></mark>前端开发经验，掌握 <mark class="highlight-teal"><code>Vue</code></mark>全家桶和响应式设计原理。熟练掌握多种 <mark class="highlight-teal"><code>Ui</code></mark>框架和 <mark class="highlight-teal"><code>CSS</code></mark>库，具备跨平台<mark class="highlight-teal"><code>小程序</code></mark>开发能力，并熟悉 <mark class="highlight-teal"><code>PHP</code></mark>开发以及 <mark class="highlight-teal"><code>MySQL</code></mark>和 <mark class="highlight-teal"><code>MongoDB </code></mark>数据库。同时熟练使用构建工具和版本控制。目前，我正在自学 <mark class="highlight-teal"><code>Golang</code></mark>不断提升自己以适应技术发展。</li></ul><ul id="c1612736-830a-44bf-b890-d04eb85c6575" class="bulleted-list"><li style="list-style-type:circle">后端这块有含水量，得阅读使用说明食用~</li></ul><ul id="381ecd65-4102-4787-9191-a8ce1fc8c23d" class="bulleted-list"><li style="list-style-type:circle">言简意赅就是👉前端技术栈主<mark class="highlight-teal"><code>Vue</code></mark>，可以适当参与后端开发，独立负责需要周期~</li></ul></li></ul><p id="0478f62e-84d9-4175-85e0-76ad98883ff7" class="">📝 怀揣众多渴望，然前行之路唯我独行。虽步履稍显蹒跚，但矢志始终不渝，从未言弃。</p><hr id="6361ccdf-c035-448d-9def-cb38f6de89b9"/><h1 id="d015ce23-ccca-428b-b403-5c804e4e2c91" class="">👩🏻‍💻工作经历</h1><h3 id="9c00ec09-5481-43cb-988e-adbb818252d4" class="">📌深圳市云蜂智能有限公司 （ 2022.03 ~ 2024/03 ） web前端工程师</h3><ul id="86f15edc-0b46-439f-84ba-a3f3cc5c7365" class="toggle"><li><details open=""><summary><strong>👈</strong> <mark class="highlight-red"><strong>点这里</strong></mark><strong>（</strong><mark class="highlight-yellow"><strong>展开</strong></mark><strong>/</strong><mark class="highlight-teal"><strong>收起</strong></mark><strong>）</strong><mark class="highlight-red"><strong>详细介绍</strong></mark></summary><ul id="252417b8-9572-4ba8-9c7e-25b7423dbace" class="bulleted-list"><li style="list-style-type:disc">负责对管理系统的架构进行重构与升级，包括组件封装、按需加载、异步处理、用户交互优化、逻辑的优化处理；</li></ul><ul id="ed1e7905-95d5-4b6f-b24a-b3e3405d2eb0" class="bulleted-list"><li style="list-style-type:disc">负责规划权限数据存储结构，设计角色、权限、资源等数据表，并结合JWT实现前端路由、视图、操作等权限控制机制；</li></ul><ul id="0873007a-82e4-4a25-9a19-44f87c9b5243" class="bulleted-list"><li style="list-style-type:disc">负责对接并联调多款智能手表硬件，实现设备双向同步及远程控制命令的下发，确保硬件功能在各种情况下的连通性；</li></ul></details></li></ul><p id="fefb482a-7716-48e1-b980-974843c9c6a9" class="">💁🏻‍♂️说人话：主要在这家公司负责重构升级旧项目，也参与部分后端工作，系统用于管理公司的智能设备。</p><hr id="b269c516-be4e-4481-8295-8ecc1795c8b2"/><h3 id="7a99a4e5-4d9d-4ce2-a201-dafeb667bdd1" class="">📌深圳市鼎新软件科技有限公司 （ 2020.06 ~ 2022.02 ） web前端工程师</h3><ul id="3ccc975f-7dbc-4061-b1d1-3e978f579bd1" class="toggle"><li><details open=""><summary><strong>👈</strong> <mark class="highlight-red"><strong>点这里</strong></mark><strong>（</strong><mark class="highlight-yellow"><strong>展开</strong></mark><strong>/</strong><mark class="highlight-teal"><strong>收起</strong></mark><strong>）</strong><mark class="highlight-red"><strong>详细介绍</strong></mark></summary><ul id="a4b81bc9-1497-4ec9-aa6f-1276f498cec2" class="bulleted-list"><li style="list-style-type:disc">负责多个校园系统的前端设计与开发，包括招生系统、数据大屏、视频汇聚，以及门禁系统系统等，实现智慧校园信息化；</li></ul><ul id="642a14e5-78db-4e86-954b-be8b2dd40436" class="bulleted-list"><li style="list-style-type:disc">负责与南方科技大学主系统 API 进行对接，实现多种身份验证方式，包括密码以及生物识别等，为用户提供捷的身份认证；</li></ul><ul id="1ff95cb3-9a19-4039-b3b1-ccef769bf6c0" class="bulleted-list"><li style="list-style-type:disc">负责开发响应式 Web 应用，包括H5应用和移动端系统(基于Vant)，确保系统能够满足不同设备的兼容性要求；</li></ul></details></li></ul><p id="b96e1786-0ce6-4bf2-9dc7-be24b01258bc" class="">💁🏻‍♂️说人话：主要为学校做系统，包括招生、大屏、监控、门禁、小程序等等，实现可视信息化管理。</p><hr id="ccfceed2-9110-453f-941f-98c48dc0be49"/><h3 id="1424576c-2652-4405-84ee-921be3662751" class="">📌深圳市汇合点科技有限公司 （ 2019/07 ~ 2020/05 ） web前端工程师</h3><ul id="ac91f8db-edb5-4f0d-b4e8-fe14b0a57684" class="toggle"><li><details open=""><summary><strong>👈</strong> <mark class="highlight-red"><strong>点这里</strong></mark><strong>（</strong><mark class="highlight-yellow"><strong>展开</strong></mark><strong>/</strong><mark class="highlight-teal"><strong>收起</strong></mark><strong>）</strong><mark class="highlight-red"><strong>详细介绍</strong></mark></summary><ul id="8f395e47-3478-445c-8cb0-5d4399e335f8" class="bulleted-list"><li style="list-style-type:disc">负责开发和维护多款小程序，涵盖社交、汽车交易、生活服务等多个领域，为本地用户个性化的小程序应用体验；</li></ul><ul id="d18252b4-4cea-41d5-829a-8ac7154c3841" class="bulleted-list"><li style="list-style-type:disc">负责独立设计并开发服务于多个小程序产品线的后台管理系统API，涵盖需求分析、接口设计、功能实现等全流程；</li></ul><ul id="a6635296-f841-4303-b00c-b27fd012cc6d" class="bulleted-list"><li style="list-style-type:disc">负责管理系统的优化和升级迭代，整合腾讯地图、Echarts图表等可视化工具，增强对用户和业务数据的直观分析能力；</li></ul></details></li></ul><p id="dcd5d3f3-c778-4312-a671-2c622365042d" class="">💁🏻‍♂️说人话：早期外包公司，什么都做（从后端&amp;设计也做不难看出），主要业务为小程序开发。</p><hr id="a85209a8-d6f1-4796-bf60-c9c7ec24a682"/><h1 id="c44c4c8e-38cd-40a5-8d3c-50a804c2dcdf" class="">⛴️项目经历</h1><h3 id="0119f6f4-ede6-4e07-8670-7a2ef3faf6c5" class=""><strong>项目名称：</strong><mark class="highlight-blue">云蜂智能手表管理系统</mark></h3><p id="a81abe29-70e8-46de-be8d-cf6eb67c9f37" class=""><strong>项目概述：管理公司生产的智能设备及其子级管理系统，为公司总部和各地的代理商提供统一的设备监控、控制和运维服务</strong></p><p id="5a015357-ac0e-414e-ad7f-d6c5413a7144" class=""><strong>项目技术：</strong><mark class="highlight-purple"><code>Vue</code></mark>、<mark class="highlight-purple"><code>RuoYiVue</code></mark>、<mark class="highlight-purple"><code>Layui</code></mark>、<mark class="highlight-purple"><code>Vuex</code></mark>、<mark class="highlight-purple"><code>VueRouter</code></mark>、<mark class="highlight-purple"><code>Axios</code></mark>、<mark class="highlight-purple"><code>独立开发</code></mark></p><p id="26e31d6e-64d6-4c73-bcad-d442a7f7a15f" class=""><strong>项目负责：</strong></p><ol type="1" id="880ab785-c416-479a-8e11-2a473f5fc283" class="numbered-list" start="1"><li>负责使用<code>Vue2</code>、<code>RuoYiVue</code>等前端技术栈，对原<code>Layui</code>框架的系统进行重构升级，实现了组件化开发、模块按需异步加载、状态管理等优化，提升系统的性能和用户交互体验；</li></ol><ol type="1" id="06ed68c8-49ff-4814-9d0f-c7887b0d4f50" class="numbered-list" start="2"><li>负责基于<code>Vue3</code>组合式API，深入优化智能手表功能和文件流程，利用<code>WebSocket</code>实现硬件双向数据同步及远程控制命令下发，确保硬件与系统之间的交互流通性；</li></ol><ol type="1" id="1b9cf7f3-5704-4c0d-a462-73225c3d901b" class="numbered-list" start="3"><li>负责全面优化子系统代码，组件化抽离复用业务模块，异步组件和<code>Vite</code>按需加载提升首屏，封装<code>Hooks</code>提高复用性，<code>Nginx</code>优化静态资源，增强可维护性、可扩展性和用户体验；</li></ol><h3 id="03af65b2-87ba-444e-8cac-b2b7ee366ad6" class=""><strong>项目名称：</strong><mark class="highlight-blue">南方科技大学 &amp; 西交利物浦大学 本科生招生系统</mark></h3><p id="d0b826e1-0be4-4678-a866-805385b1fc00" class=""><strong>项目概述：南方科技大学和西交利物浦大学的线上本科生招生系统</strong></p><p id="d7b45479-24a8-4ec6-ab84-8724cb71905a" class=""><strong>项目技术：</strong><mark class="highlight-purple"><code>Vue</code></mark>、<code><mark class="highlight-purple">Vuetify</mark></code>、<mark class="highlight-purple"><code>Vant</code></mark>、<mark class="highlight-purple"><code>Vuex</code></mark>、<mark class="highlight-purple"><code>VueRouter</code></mark>、<mark class="highlight-purple"><code>Axios</code></mark>、<mark class="highlight-purple"><code>独立开发</code></mark></p><p id="c0cf5db4-c2d8-483b-af80-92f774d97515" class=""><strong>项目负责：</strong></p><ol type="1" id="6dc5a9d7-936a-4a02-aa91-19398d255d21" class="numbered-list" start="1"><li>基于<code>Vue</code>和<code>Vuetify</code>框架的跨平台特性和响应式设计，实了一份代码在<code>Web</code>端和<code>移动端</code>的无缝运行，降低开发和维护成本，提高了开发效率。</li></ol><ol type="1" id="7545f818-4d4d-4aaa-97ac-a6f63c83c1f2" class="numbered-list" start="2"><li>基于<code>Vuex</code>状态管理模式，实现了组件间、页面间数据的高效共享，特别是在报名系统中的实时数据缓存，并同时与其他标签页交互的复杂场景。</li></ol><ol type="1" id="56092b11-1c36-423a-ab68-3e138886df59" class="numbered-list" start="3"><li>负责应对高并发和大量请求，采用异步加载和懒加载策略，同时，通过实施防抖和节流技术，结合响应式设计，优化了性能和体验。</li></ol><ol type="1" id="a385b6cf-ad8d-462f-b904-56c3d36f181c" class="numbered-list" start="4"><li>负责使用<code>Vant</code>组件库，开发了独立的H5移动端应用，优化了界面设计和用户交互，具备良好表现和响应速度。</li></ol><h3 id="77c62ff5-0797-4b2f-a410-adfcf4836310" class=""><strong>项目名称：</strong><mark class="highlight-blue">南方科技大学视频联网汇聚平台</mark></h3><p id="874852b5-96b1-4177-957a-3de5ae18958c" class=""><strong>项目概述：校园智能安防系统，集成视频监控、大数据分析和AI预警技术，为校园安全防范提供一体化的智能化解决方案。</strong></p><p id="eab84e79-d97f-4a23-8a09-518cc0b42d2e" class=""><strong>项目技术：</strong><mark class="highlight-purple"><code>Vue</code></mark>、<mark class="highlight-purple"><code>GoJS</code></mark>、<mark class="highlight-purple"><code>Echarts</code></mark>、<mark class="highlight-purple"><code>天地图</code></mark>、<mark class="highlight-purple"><code>Element UI</code></mark>、<mark class="highlight-purple"><code>VueRouter</code></mark>、<code><mark class="highlight-purple">Vuex</mark></code>、<code><mark class="highlight-purple">独立开发</mark></code></p><p id="685f36e9-528e-43a3-9e9f-4e63bad857a3" class=""><strong>项目负责：</strong></p><ol type="1" id="32eea358-e36c-4e6b-90bb-660f771d2def" class="numbered-list" start="1"><li>负责基于<code>Vue</code>+<code>GoJS</code>框架和天地图<code>API</code>，构建智能视频监控平台，实现校园摄像头实时管理、视频智能分析与预警，全面提升安全监控的效率及准确性。</li></ol><ol type="1" id="4deb7450-fed7-4f4e-8e75-4f95a381e888" class="numbered-list" start="2"><li>负责开发大屏数据可视化系统，集成视频实时预览、告警态势展示、设备树状图表等核心功能，基于<code>Echarts</code>直观呈现多维度告警数据统计，为校方提供快速掌控安全动态的决策辅助。</li></ol><ol type="1" id="b0f5fea4-7466-4df6-9cd8-ea7fb7b326d2" class="numbered-list" start="3"><li>负责实现<code>VueRouter</code>、<code>Vuex</code>精细化的前端路由权限控制，结合身份认证机制，确保各类用户(管理员、教职工等)仅能访问被授权的大屏数据区域，保障了信息安全和页面个性化体验。</li></ol><h3 id="cfa9b9c6-f043-40b9-91de-bb2dc9fb044a" class=""><strong>项目名称：</strong><mark class="highlight-blue">微信小程序开发</mark></h3><p id="9ac7d53b-271d-4aef-a477-fef3b885ae4a" class=""><strong>项目概述：同城交友、二手车交易、生活服务预订等多种应用场景，为用户提供一站式小程序体验。</strong></p><p id="718a1b85-2ff4-4b6f-8e28-6fcbce548a7a" class=""><strong>项目技术：</strong><mark class="highlight-purple"><code>Vue</code></mark>、<mark class="highlight-purple"><code>uni-app</code></mark>、<mark class="highlight-purple"><code>Vant</code></mark>、<mark class="highlight-purple"><code>WeUI</code></mark>、<mark class="highlight-purple"><code>ColorUI</code></mark>、<code><mark class="highlight-purple">独立开发</mark></code></p><p id="d46db80c-86ec-4e81-b405-bb26db63c717" class=""><strong>项目负责：</strong></p><ol type="1" id="c7ea741d-9aab-4a0b-bd3b-b3b8e3707dad" class="numbered-list" start="1"><li>负责基于<code>uni-app</code>跨端框架开发，实现<code>小程序</code>一码多终端适配，覆盖微信、支付宝、百度等主流平台，大幅扩展了用户范围。</li></ol><ol type="1" id="00ccfde4-c030-4994-a199-3dbb6a29649d" class="numbered-list" start="2"><li>负责集成<code>云函数</code>和<code>云存储</code>服务，简化了后端开发与维护，将服务端逻辑迁移至云端，减轻低端设备压力，提升应用响应速度，同时降低了开发成本。</li></ol><ol type="1" id="d08935bc-6f46-497d-b8a4-0165badd6bfa" class="numbered-list" start="3"><li>负责使用<code>PHP</code>+<code>MySQL</code>技术栈开发后端，结合云开发能力，优化小程序与服务端的数据交互，通过设计合理的API接口和数据模型，提升应用性能和用户体验。</li></ol><h3 id="59c64cd0-1d79-4181-84a3-3cf1903e5f76" class=""><strong>项目名称：</strong><mark class="highlight-blue">KKGame后台游控中心</mark></h3><p id="2a5c30b5-0e69-49ad-9c2f-744bd93efa6e" class=""><strong>项目概述：公司棋牌游戏后台管理系统，提供游戏运营数据监控、配置管理、风控审核等功能，支撑公司游戏业务发展。</strong></p><p id="a2e72615-f91f-420f-b9bc-26ed14ef2e8f" class=""><strong>项目技术：</strong><mark class="highlight-purple"><code>Vue</code></mark>、<mark class="highlight-purple"><code>PHP</code></mark>、<mark class="highlight-purple"><code>ThinkPHP</code></mark>、<mark class="highlight-purple"><code>MySQL</code></mark>、<mark class="highlight-purple"><code>MongoDB</code></mark>、<mark class="highlight-purple"><code>Echarts</code></mark>、<mark class="highlight-purple"><code>Element UI</code></mark>、<mark class="highlight-purple"><code>VueRouter</code></mark>、<mark class="highlight-purple"><code>独立开发</code></mark></p><p id="769e1988-042f-4eb4-8936-b1257c0008a0" class=""><strong>项目负责：</strong></p><ol type="1" id="0797fc15-06c4-4bba-9068-00c42add8cc9" class="numbered-list" start="1"><li>负责基于<code>Vue</code>+<code>Element UI</code>框架，对原<code>jQuery</code>+<code>Layui</code>架构的旧版系统进行了全面技术升级。</li></ol><ol type="1" id="2a68d62f-5a71-409a-853d-1f7c7530958d" class="numbered-list" start="2"><li>负责引入<code>Echarts</code>数据可视化库，实现丰富的图表展示和数据表格视图，将游戏数据和用户行为分析直观呈现，为运营人员提供有力的数据决策支持。</li></ol><ol type="1" id="b89b3199-fa0f-4ffb-aa60-05f84811298b" class="numbered-list" start="3"><li>负责使用<code>PHP</code>+<code>ThinkPHP</code>框架开发后端，开发权限控制、游戏数据管理等<code>API</code>接口，数据存储方面采用<code>MySQL</code>和<code>MongoDB</code>两种数据库，前者用于存储用户、游戏设置等结构化数据，后者用于存储游戏日志、用户行为等非结构化数据。</li></ol><h1 id="21c88022-d714-4269-8f16-aecb65965c2e" class="">教育经历</h1><ul id="abe55e50-6e2d-4b97-a66e-d0eb0163cda1" class="bulleted-list"><li style="list-style-type:disc">2015.9 - 2018.6 北海职业学院 / 专科 / 计算机应用技术</li></ul><h1 id="d94f6b6a-2404-4e39-b7cf-fe93a9843b66" class="">致谢</h1><ul id="b4185897-1242-42ab-8b98-e0059f8a42d3" class="bulleted-list"><li style="list-style-type:disc">感谢您花时间阅读我的简历，期待能有机会和您共事。</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
